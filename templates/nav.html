@@ -1,0 +1,125 @@
+<style type="text/css">
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 12px 20px;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 10px;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-bar.hidden {
+    transform: translateY(-130%);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #31513f;
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-links li a {
+    position: relative;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: #31513f;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::before {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #31513f;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 12px 12px;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+.nav-links li a.active {
+    color: #31513f;
+    font-weight: 600;
+}
+
+.nav-links li a.active::before {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .nav-bar {
+        padding: 10px 15px;
+        width: 95%;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+}
+</style>
+<nav class="nav-bar">
+    <div class="logo">Grain Palette</div>
+    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/upload">Predict</a></li>
+        <li><a href="/team">Our Team</a></li>
+    </ul>
+</nav>

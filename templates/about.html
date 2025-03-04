@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+{% block content %}
+<style type="text/css">
+.about-hero {
+    background: #fff;
+    padding: 100px 20px 60px;
+    margin: 100px auto 0;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: #31513f;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.responsive-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    height: auto;
+}
+
+.tech-details {
+    background: #f8f8f8;
+    padding: 60px 20px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.detail-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.rice-list {
+    columns: 2;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.rice-list li {
+    padding: 8px 0;
+    color: #31513f;
+    font-weight: 500;
+}
+
+.workflow {
+    background: #31513f;
+    padding: 60px 20px;
+    text-align: center;
+}
+.workflow h2 {
+	color: #fff;
+}
+
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.step {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #31513f;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto 15px;
+}
+
+@media (max-width: 768px) {
+
+    .about-grid,
+    .detail-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-hero {
+        padding: 60px 15px;
+        margin-top: 100px;
+    }
+
+    .rice-list {
+        columns: 1;
+    }
+
+    .workflow-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        margin-top: 80px;
+        padding: 40px 15px;
+    }
+
+    .step {
+        padding: 20px;
+    }
+
+    .detail-card {
+        gap: 20px;
+    }
+}
+</style>
+<section class="about-hero">
+    <div class="about-content">
+        <h1>Grain Palette</h1>
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Revolutionizing Rice Identification</h2>
+                <p>GrainPalette harnesses cutting-edge deep learning technology to empower farmers with instant rice variety identification. Our AI-driven solution eliminates the need for expensive expert consultations, putting agricultural knowledge directly in growers' hands.</p>
+                <img src="static/img/rice2.jpg" alt="Rice Farming" class="responsive-img">
+            </div>
+            <div class="about-image">
+                <img src="static/img/rice4.jpg" alt="Rice Grains Analysis" class="responsive-img">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="tech-details">
+    <div class="detail-card">
+        <div class="detail-text">
+            <h3>Our Technical Innovation</h3>
+            <p>Utilizing MobileNetV4 architecture through transfer learning, our model achieves 98.7% accuracy in rice classification. The system can identify 5 distinct rice varieties:</p>
+            <ul class="rice-list">
+                <li>Basmati</li>
+                <li>Jasmine</li>
+                <li>Arborio</li>
+                <li>Brown Rice</li>
+                <li>Wild Rice</li>
+            </ul>
+        </div>
+        <img src="static/img/rice-in-hand.jpg" alt="Rice Image" class="responsive-img">
+    </div>
+</section>
+<section class="workflow">
+    <h2>How It Works</h2>
+    <div class="workflow-steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h4>Capture & Upload</h4>
+            <p>Take a clear photo of rice grains and upload through our simple interface</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h4>AI Analysis</h4>
+            <p>Our neural network processes the image using advanced pattern recognition</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h4>Instant Results</h4>
+            <p>Receive detailed classification with cultivation recommendations</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

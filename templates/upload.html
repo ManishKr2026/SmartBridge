@@ -46,7 +46,7 @@
 }
 
 button#browse-btn,
-button#submit-btn {
+button#submit-btn.enable {
     background: #31513f;
     color: #fff;
     padding: 8px 15px;
@@ -65,6 +65,17 @@ button#submit-btn:hover {
 .hidden {
     display: none;
 }
+.disable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #31513f;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
 
 /* Preview Container */
 .image-preview {

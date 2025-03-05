@@ -1,8 +1,167 @@
 {% extends "layout.html" %}
-
 {% block content %}
-	<div class="container">
-		<h1>Results</h1>
-		<p>Upload an image of a grain to get its color palette.</p>
-	</div>
+<style type="text/css">
+.detail-container {
+    background: #fff;
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto 40px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.detail-image {
+    position: relative;
+    margin: 0;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detail-image figcaption {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.detail-content h1 {
+    color: #31513f;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detail-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.spec-item {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.spec-item h3 {
+    color: #31513f;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.detail-description h2 {
+    color: #31513f;
+    font-size: 1.4rem;
+    margin: 25px 0 15px;
+}
+
+.feature-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.feature-list li {
+    position: relative;
+    padding: 8px 0;
+    color: #666;
+}
+
+.feature-list li::before {
+    content: "🌾";
+    position: absolute;
+    left: -25px;
+}
+
+@media (max-width: 768px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+        margin-top: 80px;
+        padding: 20px;
+    }
+
+    .detail-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-list li::before {
+        left: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-container {
+        width: 95%;
+        margin-top: 70px;
+        padding: 15px;
+    }
+
+    .detail-specs {
+        grid-template-columns: 1fr;
+    }
+
+    .spec-item {
+        padding: 12px;
+    }
+
+    .detail-description h2 {
+        font-size: 1.2rem;
+    }
+}
+</style>
+<main class="detail-container">
+    <figure class="detail-image">
+        <img src="https://picsum.photos/800/1000?rice" alt="Rice Variety" class="responsive-img">
+        <figcaption>Rice Grains</figcaption>
+    </figure>
+    <div class="detail-content">
+        <h1>{{data["name"]}}</h1>
+        <div class="detail-specs">
+            <div class="spec-item">
+                <h3>Origin</h3>
+                <p>{{data["origin"]}}</p>
+            </div>
+            <div class="spec-item">
+                <h3>Grain Length</h3>
+                <p>{{data["grain_length"]}}</p>
+            </div>
+            <div class="spec-item">
+                <h3>Water Requirement</h3>
+                <p>{{data["water_requirement"]}}</p>
+            </div>
+            <div class="spec-item">
+                <h3>Best For</h3>
+                <p>{% for i in range(data["best_for"]|length) %}
+                <span>{{data["best_for"][i]}}{% if not loop.last %}, {% endif %}</span>
+                {% endfor %}</p>
+            </div>
+            <div class="spec-item">
+                <h3>Local Names</h3>
+                <p>{% for i in range(data["indian_local_names"]|length) %}
+                <span>{{data["indian_local_names"][i]}}{% if not loop.last %}, {% endif %}</span>
+                {% endfor %}</p>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h2>Characteristics</h2>
+            <ul class="feature-list">
+            	{% for item in data["characteristics"] %}
+				<li>{{item}}</li>
+            	{% endfor %}
+            </ul>
+            <h2>Cultivation Guide</h2>
+            <p>{{data["cultivation_guide"]}}</p>
+        </div>
+    </div>
+</main>
 {% endblock %}

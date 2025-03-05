@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from rice import riceData
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def upload():
 
 @app.route('/results')
 def results():
-	return render_template('results.html', title = 'Results')
+	return render_template('results.html', title = 'Results', data = riceData['ipsala'])
 
 @app.route('/team')
 def team():

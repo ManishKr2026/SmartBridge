@@ -1,7 +1,11 @@
 from flask import Flask, render_template, jsonify
+from random import randint
+
 from rice import riceData
 
-app = Flask(__name__)
+cloudinaryUrl = "https://res.cloudinary.com/dq0joztmo/image/upload/"
+
+app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 def home():
@@ -11,9 +15,12 @@ def home():
 def upload():
 	return render_template('upload.html', title = 'Upload Image')
 
-@app.route('/results')
-def results():
-	return render_template('results.html', title = 'Results', data = riceData['ipsala'])
+@app.route('/results/<imageId>')
+def results(imageId):
+	imgUrl = cloudinaryUrl + imageId
+	riceTypes = ['ipsala', 'karacadag', 'arborio', 'basmati', 'jasmine']
+	rand = randint(0, 4)
+	return render_template('results.html', imgurl = imgUrl, title = 'Results', data = riceData[riceTypes[rand]])
 
 @app.route('/team')
 def team():

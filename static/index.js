@@ -100,8 +100,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     body: formData,
                 })
                 .then((response) => response.json())
-                .then((data)=>{
-                    window.location.href = `/results/${data.public_id}`;
+                .then((data) => {
+                    setTimeout(() => {
+                        window.location.href = `/results/${data.public_id}`;
+                    }, 500);
+
                 });
         } else {
             alert("Please select an image to upload.");

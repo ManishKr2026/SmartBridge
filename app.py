@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -22,5 +22,9 @@ def team():
 def about():
 	return render_template('about.html', title = 'About')
 
+@app.route('/ping')
+def ping():
+	return jsonify({'response': 'pong'})
+
 if(__name__ == '__main__'):
-	app.run(debug=True)
+	app.run(debug=False)

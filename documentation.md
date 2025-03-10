@@ -1,12 +1,12 @@
 **GRAIN PALETTE: A DEEP LEARNING ODYSSEY IN RICE TYPE CLASSIFICATION THROUGH TRANSFER LEARNING
 **
 
-INTRODUCTION
+_INTRODUCTION_
 
 Rice is most widely consumed staple foods worldwide, with different varieties and specific characteristics such as shape, size, texture.
 In this study, we explore the potential of deep learning and transfer learning techniques to automate the classification of rice grains with accuracy. By leveraging pre-trained convolutional neural networks (CNNs), we aim to develop an optimized model that can distinguish between different rice varieties based on their structural features.
 
-PROBLEM STATEMENT
+_PROBLEM STATEMENT_
 
 Rice is a staple food with different varities, and which have unique characteristics like shape, size, and texture. Manually identifying and classifying these varieties is slow, requires expertise, and can lead to errors.
 This project is build to use deep learning to create a smart system that can automatically identify and classify different types of rice from images.
@@ -21,7 +21,7 @@ iii) The model may not work well under different lighting conditions and image v
 
 
 
-OBJECTIVES
+_OBJECTIVES_
 
 Here are some objectives of this project:
 
@@ -31,7 +31,7 @@ b. To analyze and compare different pre-trained models for feature extraction an
 
 c. To validate the model’s performance on a diverse dataset containing multiple rice varieties.
 
-METHODOLOGY
+_METHODOLOGY_
 
 i) Collect a dataset containing images of different rice varieties like basmati, Jasmine, Arborio,etc.
 
